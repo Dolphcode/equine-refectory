@@ -1,7 +1,23 @@
 cmake_minimum_required(VERSION 3.15)
-
 project(EquineRefectory VERSION	0.0.1
 	DESCRIPTION "Optimized 3D tower defense game"
-	LANGUAGES CXX)
+	LANGUAGES C CXX)
+
+# GLFW package
+find_package(glfw3 REQUIRED)
+
+# OpenGL
+find_package(OpenGL REQUIRED)
+
+set(GLAD_SOURCE_DIR "${PROJECT_SOURCE_DIR}/extern/glad")
+add_subdirectory("${GLAD_SOURCE_DIR}/cmake" glad_cmake)
+glad_add_library(glad_gl_core_46 REPRODUCIBLE API gl:core=4.6)
 
 add_executable(equine_refectory main.cpp)
+
+target_link_libraries(equine_refectory
+	PUBLIC
+		glad_gl_core_46
+		glfw
+	)
+
