@@ -69,6 +69,7 @@ int main(int argc, char **argv) {
 		0.5f, -0.5f, 0.0f,
 		0.0f, 0.5f, 0.0f
 	};
+
 	unsigned int VBO;
 	glGenBuffers(1, &VBO);
 
