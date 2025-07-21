@@ -18,7 +18,7 @@ add_subdirectory("${PROJECT_SOURCE_DIR}/src")
 
 add_executable(equine_refectory src/main.cpp)
 
-target_include_directories(equine_refectory PUBLIC "${PROJECT_SOURCE_DIR}/include")
+target_include_directories(equine_refectory PUBLIC include)
 
 target_link_libraries(equine_refectory
 	PUBLIC

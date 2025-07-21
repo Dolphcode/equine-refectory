@@ -2,6 +2,8 @@
 #include <glad/gl.h>
 #include <GLFW/glfw3.h>
 
+#include "rendering/shader.hpp"
+
 const char *vShaderSrc = "#version 460 core\n"
 	"layout (location = 0) in vec4 vPosition;\n"
 	"void main()\n"
@@ -33,7 +35,7 @@ int main(int argc, char **argv) {
 	}
 
 	glViewport(0, 0, 800, 600);
-
+	/*
 	int success;
 	char infoLog[512];
 
@@ -63,6 +65,9 @@ int main(int argc, char **argv) {
 	glAttachShader(shaderProgram, fragmentShader);
 	glLinkProgram(shaderProgram);
 	glUseProgram(shaderProgram);
+	*/
+
+	GLuint shaderProgram = shader::loadProgramFromFile("res/shaders/simple.vert", "res/shaders/simple.frag");
 
 	float vertices[] = {
 		-0.5f, -0.5f, 0.0f,
