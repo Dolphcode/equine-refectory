@@ -1,3 +1,5 @@
+#include <fmt/base.h>
+
 #include "log.hpp"
 
 #include "rendering/shader.hpp"
@@ -105,8 +107,9 @@ GLuint shader::loadProgramFromFileFull(std::string vShaderPath, std::string fSha
 	// Cleanup
 	glDeleteShader(vShader);
 	glDeleteShader(fShader);
-
+	
 	// Successful program completion
+	fmt::print("{}(@{}): Successfully compiled and linked shader program\n", __FILE__, __LINE__);
 	return program;
 }
 

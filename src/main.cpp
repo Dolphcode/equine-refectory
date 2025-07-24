@@ -2,6 +2,8 @@
 #include <glad/gl.h>
 #include <GLFW/glfw3.h>
 
+#include <fmt/base.h>
+
 #include "rendering/shader.hpp"
 
 const char *vShaderSrc = "#version 460 core\n"
@@ -33,39 +35,10 @@ int main(int argc, char **argv) {
 		std::cout << "Failed to initialize GLAD\n";
 		return -1;
 	}
+		
+	fmt::print("{}(@{}): Test\n", __FILE__, __LINE__);
 
 	glViewport(0, 0, 800, 600);
-	/*
-	int success;
-	char infoLog[512];
-
-	unsigned int vertexShader;
-	vertexShader = glCreateShader(GL_VERTEX_SHADER);
-	glShaderSource(vertexShader, 1, &vShaderSrc, NULL);
-	glCompileShader(vertexShader);
-	glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
-	if (!success){
-		glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-		std::cout << "Vertex shader failed\n" << infoLog << '\n';
-	}
-
-	unsigned int fragmentShader;
-	fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(fragmentShader, 1, &fShaderSrc, NULL);
-	glCompileShader(fragmentShader);
-	glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
-	if (!success){
-		glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
-		std::cout << "Fragment shader failed\n" << infoLog << '\n';
-	}
-
-	unsigned int shaderProgram;
-	shaderProgram = glCreateProgram();
-	glAttachShader(shaderProgram, vertexShader);
-	glAttachShader(shaderProgram, fragmentShader);
-	glLinkProgram(shaderProgram);
-	glUseProgram(shaderProgram);
-	*/
 
 	GLuint shaderProgram = shader::loadProgramFromFile("res/shaders/simple.vert", "res/shaders/simple.frag");
 
