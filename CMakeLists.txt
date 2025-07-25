@@ -4,7 +4,12 @@ project(EquineRefectory VERSION	0.1
 	LANGUAGES C CXX)
 
 # GLFW package
-find_package(glfw3 REQUIRED)
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+  find_package(glfw3 REQUIRED)
+endif()
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+  add_subdirectory("extern/glfw")
+endif()
 
 # OpenGL
 find_package(OpenGL REQUIRED)
