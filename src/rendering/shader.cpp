@@ -16,7 +16,7 @@ GLuint shader::loadProgramFromFileFull(std::string vShaderPath, std::string fSha
 	int success{};
 
 	// Attempt to open the vertex shader
-	std::ifstream vShaderFile( vShaderPath );
+	std::ifstream vShaderFile( vShaderPath, std::ios::binary );
 	if (vShaderFile.is_open()) {
 		// Read the shader file contents
 		vShaderFile.seekg(0, std::ios::end);
@@ -49,7 +49,7 @@ GLuint shader::loadProgramFromFileFull(std::string vShaderPath, std::string fSha
 	}
 
 	// Attempt to open the fragment shader
-	std::ifstream fShaderFile( fShaderPath );
+	std::ifstream fShaderFile( fShaderPath, std::ios::binary );
 	if (fShaderFile.is_open()) {
 		// Read the shader file contents
 		fShaderFile.seekg(0, std::ios::end);
